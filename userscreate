@@ -1,0 +1,15 @@
+provider  "aws" {
+region = "us-east-2"
+access_key =  "AKIA2PNTPJUZXL6KZIOE"
+secret_key = "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"
+}
+
+resource "aws_iam_user" "key" {
+count = length(var.abc)
+name = var.abc[count.index]
+}
+
+variable "abc" {
+type = list(string)
+default = ["aws","java","python"]
+}
